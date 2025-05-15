@@ -77,9 +77,15 @@ class Request implements RequestInterface
                     false,
                     $e->getMessage(),
                 ];
+            } catch (\Exception $e) {
+                $result[$relay->getUrl()][] = [
+                    'ERROR',
+                    '',
+                    false,
+                    $e->getMessage(),
+                ];
             }
         }
-
         return $result;
     }
 
